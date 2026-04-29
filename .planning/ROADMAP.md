@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. Each plugin directory contains the correctly-sized `icon.png`, `fanart.jpg`, and a `changelog-X.Y.Z.txt` whose version matches the published ZIP exactly
 **Plans**: 3 plans
 Plans:
-- [ ] 01-01-PLAN.md — Repo skeleton on main: hand-author addon.xml with locked URLs, generate placeholder artwork, write plugins.json and .gitignore
+- [x] 01-01-PLAN.md — Repo skeleton on main: hand-author addon.xml with locked URLs, generate placeholder artwork, write plugins.json and .gitignore
 - [ ] 01-02-PLAN.md — Generator + plugin packaging: author tools/generate.py, clone plugin source to vendor/, run generator locally, verify all staging artifacts
 - [ ] 01-03-PLAN.md — Publish to gh-pages + smoke tests + Kodi human verification + write SETUP.md
 

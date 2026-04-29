@@ -7,8 +7,8 @@
 
 ### Repository Addon (REPO)
 
-- [ ] **REPO-01**: A wrapper addon `repository.sandwichfarm` exists with a hand-authored `addon.xml` declaring `extension point="xbmc.addon.repository"` and a `<dir>` wrapper element (required since Kodi Nexus 20.x)
-- [ ] **REPO-02**: The repo addon's `<dir>` block declares three URLs: `<info>` (addons.xml), `<checksum verify="sha256">` (addons.xml.sha256), and `<datadir zip="true">` (base path for plugin ZIPs)
+- [x] **REPO-01**: A wrapper addon `repository.sandwichfarm` exists with a hand-authored `addon.xml` declaring `extension point="xbmc.addon.repository"` and a `<dir>` wrapper element (required since Kodi Nexus 20.x)
+- [x] **REPO-02**: The repo addon's `<dir>` block declares three URLs: `<info>` (addons.xml), `<checksum verify="sha256">` (addons.xml.sha256), and `<datadir zip="true">` (base path for plugin ZIPs)
 - [ ] **REPO-03**: The repo addon is packaged as `repository.sandwichfarm-X.Y.Z.zip` whose top-level directory is exactly `repository.sandwichfarm/`
 - [ ] **REPO-04**: The repo addon ZIP is reachable at a stable, copy-paste-able HTTPS URL that end users can install via "install from zip"
 
@@ -91,8 +91,8 @@ Deferred. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REPO-01 | Phase 1 | Pending |
-| REPO-02 | Phase 1 | Pending |
+| REPO-01 | Phase 1 | Complete |
+| REPO-02 | Phase 1 | Complete |
 | REPO-03 | Phase 1 | Pending |
 | REPO-04 | Phase 1 | Pending |
 | IDX-01 | Phase 1 | Pending |
