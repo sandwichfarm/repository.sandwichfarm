@@ -1,0 +1,14 @@
+# Generated output lives on gh-pages branch only
+/vendor/
+/tmp/
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+*.swp
