@@ -28,7 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A Kodi user who has the repo installed can browse to `plugin.audio.subsonic` in the addon browser and install it without downloading a ZIP from GitHub
   4. The published `addons.xml` is valid UTF-8 without BOM, uses `\n` line endings, and includes a matching `addons.xml.sha256` and `addons.xml.md5` sidecar
   5. Each plugin directory contains the correctly-sized `icon.png`, `fanart.jpg`, and a `changelog-X.Y.Z.txt` whose version matches the published ZIP exactly
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 01-01-PLAN.md — Repo skeleton on main: hand-author addon.xml with locked URLs, generate placeholder artwork, write plugins.json and .gitignore
+- [ ] 01-02-PLAN.md — Generator + plugin packaging: author tools/generate.py, clone plugin source to vendor/, run generator locally, verify all staging artifacts
+- [ ] 01-03-PLAN.md — Publish to gh-pages + smoke tests + Kodi human verification + write SETUP.md
 
 ### Phase 2: Automation
 **Goal**: The author can release a new plugin version by tagging in the plugin repo; CI produces, validates, and deploys all artifacts without manual steps
@@ -59,6 +63,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Bootstrap | 0/TBD | Not started | - |
+| 1. Bootstrap | 0/3 | Not started | - |
 | 2. Automation | 0/TBD | Not started | - |
 | 3. End-to-End | 0/TBD | Not started | - |
