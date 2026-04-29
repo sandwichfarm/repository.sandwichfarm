@@ -88,36 +88,24 @@ def build_addons_xml(addon_elements: list) -> str:
     return "\n".join(lines) + "\n"
 
 
-def write_html_index(output_dir: str, repo_zip_name: str) -> None:
+def write_flat_index(target_dir: str, entries: list) -> None:
     """
-    Write index.html at output_dir root so Kodi's "Install from zip file" can
-    list the wrapper repo ZIP when the user adds the base URL as a Kodi source.
+    Write a flat-anchor index.html at target_dir.
 
-    Without index.html, GitHub Pages returns 404 on the bare URL and Kodi's file
-    browser shows an empty list. The shape mirrors drinfernoo/repository.example.
+    Kodi's HTTPDirectory parser (xbmc/filesystem/HTTPDirectory.cpp) is a custom
+    anchor scanner — NOT a full HTML parser. It looks for top-level <a href> tags
+    and ignores wrapping markup. Wrapping anchors in <ul>/<li> or <body> can
+    cause Kodi to surface zero entries, even though the file is browsable.
+
+    Match drinfernoo/repository.example: <!DOCTYPE html> followed by flat <a> tags,
+    one per line, no wrapping elements. Trailing slash on directory entries.
     """
-    html = (
-        "<!DOCTYPE html>\n"
-        "<html lang=\"en\">\n"
-        "<head>\n"
-        "<meta charset=\"utf-8\">\n"
-        "<title>repository.sandwichfarm — Kodi addon repository</title>\n"
-        "</head>\n"
-        "<body>\n"
-        "<h1>repository.sandwichfarm</h1>\n"
-        "<p>Kodi addon repository. Add this site as a Kodi file source, then "
-        f"install <code>{repo_zip_name}</code> below.</p>\n"
-        "<ul>\n"
-        f"<li><a href=\"{repo_zip_name}\">{repo_zip_name}</a></li>\n"
-        "<li><a href=\"addons.xml\">addons.xml</a></li>\n"
-        "<li><a href=\"addons.xml.sha256\">addons.xml.sha256</a></li>\n"
-        "<li><a href=\"addons.xml.md5\">addons.xml.md5</a></li>\n"
-        "</ul>\n"
-        "</body>\n"
-        "</html>\n"
-    )
-    with open(os.path.join(output_dir, "index.html"), "w", encoding="utf-8", newline="\n") as f:
-        f.write(html)
+    lines = ["<!DOCTYPE html>"]
+    for href in entries:
+        lines.append(f'<a href="{href}">{href}</a>')
+    body = "\n".join(lines) + "\n"
+    with open(os.path.join(target_dir, "index.html"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(body)
 
 
 def write_index_and_checksums(content: str, output_dir: str) -> None:
@@ -213,8 +201,24 @@ def main():
     content = build_addons_xml(addon_elements)
     write_index_and_checksums(content, output_dir)
 
-    # Write the HTML index so Kodi's Install-from-zip browser can surface the wrapper ZIP
-    write_html_index(output_dir, f"{REPO_ADDON_ID}-{REPO_ADDON_VER}.zip")
+    # Write per-plugin flat-anchor index so Kodi can browse into the plugin dir
+    plugin_dir = os.path.join(output_dir, plugin_id)
+    plugin_zip_name = f"{plugin_id}-{plugin_ver}.zip"
+    plugin_changelog = f"changelog-{plugin_ver}.txt"
+    plugin_entries = [plugin_zip_name, "addon.xml", plugin_changelog, "icon.png", "fanart.jpg"]
+    plugin_entries = [e for e in plugin_entries if os.path.exists(os.path.join(plugin_dir, e))]
+    write_flat_index(plugin_dir, plugin_entries)
+
+    # Write the root flat-anchor index so Kodi's Install-from-zip surfaces the wrapper ZIP
+    repo_zip_name = f"{REPO_ADDON_ID}-{REPO_ADDON_VER}.zip"
+    root_entries = [
+        repo_zip_name,
+        "addons.xml",
+        "addons.xml.sha256",
+        "addons.xml.md5",
+        f"{plugin_id}/",
+    ]
+    write_flat_index(output_dir, root_entries)
 
     print(f"Generated: {output_dir}")
     print(f"  addons.xml -- {len(addon_elements)} addons")
