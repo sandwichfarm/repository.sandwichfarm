@@ -91,44 +91,44 @@ Deferred. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REPO-01 | TBD | Pending |
-| REPO-02 | TBD | Pending |
-| REPO-03 | TBD | Pending |
-| REPO-04 | TBD | Pending |
-| IDX-01 | TBD | Pending |
-| IDX-02 | TBD | Pending |
-| IDX-03 | TBD | Pending |
-| IDX-04 | TBD | Pending |
-| IDX-05 | TBD | Pending |
-| IDX-06 | TBD | Pending |
-| HOST-01 | TBD | Pending |
-| HOST-02 | TBD | Pending |
-| HOST-03 | TBD | Pending |
-| PUB-01 | TBD | Pending |
-| PUB-02 | TBD | Pending |
-| PUB-03 | TBD | Pending |
-| PUB-04 | TBD | Pending |
-| PUB-05 | TBD | Pending |
-| PUB-06 | TBD | Pending |
-| PLUG-01 | TBD | Pending |
-| PLUG-02 | TBD | Pending |
-| PLUG-03 | TBD | Pending |
-| PLUG-04 | TBD | Pending |
-| DOCS-01 | TBD | Pending |
-| DOCS-02 | TBD | Pending |
-| DOCS-03 | TBD | Pending |
-| DOCS-04 | TBD | Pending |
-| VAL-01 | TBD | Pending |
-| VAL-02 | TBD | Pending |
-| VAL-03 | TBD | Pending |
-| VAL-04 | TBD | Pending |
-| VAL-05 | TBD | Pending |
+| REPO-01 | Phase 1 | Pending |
+| REPO-02 | Phase 1 | Pending |
+| REPO-03 | Phase 1 | Pending |
+| REPO-04 | Phase 1 | Pending |
+| IDX-01 | Phase 1 | Pending |
+| IDX-02 | Phase 1 | Pending |
+| IDX-03 | Phase 1 | Pending |
+| IDX-04 | Phase 1 | Pending |
+| IDX-05 | Phase 1 | Pending |
+| IDX-06 | Phase 1 | Pending |
+| HOST-01 | Phase 1 | Pending |
+| HOST-02 | Phase 1 | Pending |
+| HOST-03 | Phase 1 | Pending |
+| PUB-01 | Phase 2 | Pending |
+| PUB-02 | Phase 2 | Pending |
+| PUB-03 | Phase 2 | Pending |
+| PUB-04 | Phase 2 | Pending |
+| PUB-05 | Phase 2 | Pending |
+| PUB-06 | Phase 2 | Pending |
+| PLUG-01 | Phase 1 | Pending |
+| PLUG-02 | Phase 1 | Pending |
+| PLUG-03 | Phase 3 | Pending |
+| PLUG-04 | Phase 3 | Pending |
+| DOCS-01 | Phase 3 | Pending |
+| DOCS-02 | Phase 3 | Pending |
+| DOCS-03 | Phase 3 | Pending |
+| DOCS-04 | Phase 3 | Pending |
+| VAL-01 | Phase 2 | Pending |
+| VAL-02 | Phase 2 | Pending |
+| VAL-03 | Phase 2 | Pending |
+| VAL-04 | Phase 2 | Pending |
+| VAL-05 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 32 total
-- Mapped to phases: 0 (filled in by roadmapper)
-- Unmapped: 32 — to be resolved by ROADMAP.md
+- Mapped to phases: 32
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-29*
-*Last updated: 2026-04-29 after initial definition*
+*Last updated: 2026-04-29 after roadmap creation — all 32 requirements mapped*
