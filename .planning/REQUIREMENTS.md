@@ -9,17 +9,17 @@
 
 - [x] **REPO-01**: A wrapper addon `repository.sandwichfarm` exists with a hand-authored `addon.xml` declaring `extension point="xbmc.addon.repository"` and a `<dir>` wrapper element (required since Kodi Nexus 20.x)
 - [x] **REPO-02**: The repo addon's `<dir>` block declares three URLs: `<info>` (addons.xml), `<checksum verify="sha256">` (addons.xml.sha256), and `<datadir zip="true">` (base path for plugin ZIPs)
-- [ ] **REPO-03**: The repo addon is packaged as `repository.sandwichfarm-X.Y.Z.zip` whose top-level directory is exactly `repository.sandwichfarm/`
+- [x] **REPO-03**: The repo addon is packaged as `repository.sandwichfarm-X.Y.Z.zip` whose top-level directory is exactly `repository.sandwichfarm/`
 - [ ] **REPO-04**: The repo addon ZIP is reachable at a stable, copy-paste-able HTTPS URL that end users can install via "install from zip"
 
 ### Index (IDX)
 
-- [ ] **IDX-01**: An `addons.xml` index is published at the repo's base URL, wrapping each addon's `addon.xml` content in a single `<addons>` root, written as UTF-8 (no BOM) with `\n` line endings
-- [ ] **IDX-02**: An `addons.xml.sha256` sidecar is published alongside `addons.xml` and is regenerated atomically with it (always written in the same generator run, never independently)
-- [ ] **IDX-03**: An `addons.xml.md5` sidecar is also published for backward compatibility with older clients
-- [ ] **IDX-04**: Each plugin ZIP is published at the canonical Kodi path `<base>/<addon.id>/<addon.id>-<version>.zip`, with the version in the filename matching the `addon.xml` version exactly
-- [ ] **IDX-05**: Each plugin directory contains `icon.png` (512×512) and `fanart.jpg` (1920×1080) so the addon renders correctly in Kodi's browser
-- [ ] **IDX-06**: Each plugin release has a `changelog-X.Y.Z.txt` whose filename version matches the ZIP version exactly
+- [x] **IDX-01**: An `addons.xml` index is published at the repo's base URL, wrapping each addon's `addon.xml` content in a single `<addons>` root, written as UTF-8 (no BOM) with `\n` line endings
+- [x] **IDX-02**: An `addons.xml.sha256` sidecar is published alongside `addons.xml` and is regenerated atomically with it (always written in the same generator run, never independently)
+- [x] **IDX-03**: An `addons.xml.md5` sidecar is also published for backward compatibility with older clients
+- [x] **IDX-04**: Each plugin ZIP is published at the canonical Kodi path `<base>/<addon.id>/<addon.id>-<version>.zip`, with the version in the filename matching the `addon.xml` version exactly
+- [x] **IDX-05**: Each plugin directory contains `icon.png` (512×512) and `fanart.jpg` (1920×1080) so the addon renders correctly in Kodi's browser
+- [x] **IDX-06**: Each plugin release has a `changelog-X.Y.Z.txt` whose filename version matches the ZIP version exactly
 
 ### Hosting (HOST)
 
@@ -38,7 +38,7 @@
 
 ### Plugin Onboarding (PLUG)
 
-- [ ] **PLUG-01**: `plugin.audio.subsonic` is listed in `plugins.json` and successfully published through the pipeline
+- [x] **PLUG-01**: `plugin.audio.subsonic` is listed in `plugins.json` and successfully published through the pipeline
 - [ ] **PLUG-02**: A Kodi user who installs the repo addon can browse to `plugin.audio.subsonic` in Kodi's addon browser and install it without ever downloading a ZIP from GitHub
 - [ ] **PLUG-03**: When a new version of `plugin.audio.subsonic` is released upstream, Kodi clients receive the update automatically within the next polling cycle (default ~24 hours)
 - [ ] **PLUG-04**: The plugin repo's release workflow triggers a `repository_dispatch` event into `repository.sandwichfarm` so a tag in the plugin repo is sufficient to publish a new version
@@ -93,14 +93,14 @@ Deferred. Tracked but not in current roadmap.
 |-------------|-------|--------|
 | REPO-01 | Phase 1 | Complete |
 | REPO-02 | Phase 1 | Complete |
-| REPO-03 | Phase 1 | Pending |
+| REPO-03 | Phase 1 | Complete |
 | REPO-04 | Phase 1 | Pending |
-| IDX-01 | Phase 1 | Pending |
-| IDX-02 | Phase 1 | Pending |
-| IDX-03 | Phase 1 | Pending |
-| IDX-04 | Phase 1 | Pending |
-| IDX-05 | Phase 1 | Pending |
-| IDX-06 | Phase 1 | Pending |
+| IDX-01 | Phase 1 | Complete |
+| IDX-02 | Phase 1 | Complete |
+| IDX-03 | Phase 1 | Complete |
+| IDX-04 | Phase 1 | Complete |
+| IDX-05 | Phase 1 | Complete |
+| IDX-06 | Phase 1 | Complete |
 | HOST-01 | Phase 1 | Pending |
 | HOST-02 | Phase 1 | Pending |
 | HOST-03 | Phase 1 | Pending |
@@ -110,7 +110,7 @@ Deferred. Tracked but not in current roadmap.
 | PUB-04 | Phase 2 | Pending |
 | PUB-05 | Phase 2 | Pending |
 | PUB-06 | Phase 2 | Pending |
-| PLUG-01 | Phase 1 | Pending |
+| PLUG-01 | Phase 1 | Complete |
 | PLUG-02 | Phase 1 | Pending |
 | PLUG-03 | Phase 3 | Pending |
 | PLUG-04 | Phase 3 | Pending |

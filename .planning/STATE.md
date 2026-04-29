@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-bootstrap/01-01-PLAN.md
-last_updated: "2026-04-29T13:54:53.404Z"
+stopped_at: Completed 01-bootstrap/01-02-PLAN.md
+last_updated: "2026-04-29T13:59:52.244Z"
 last_activity: 2026-04-29
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-29)
 ## Current Position
 
 Phase: 01 (bootstrap) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-04-29
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-bootstrap P01 | 1 | 3 tasks | 6 files |
+| Phase 01-bootstrap P02 | 3 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - [Phase 01-bootstrap]: addon.xml <dir> wrapper pattern established — required for Kodi Nexus 20+ compatibility; all new Kodi repos must use this form
 - [Phase 01-bootstrap]: Three addon.xml URLs locked in pointing at https://sandwichfarm.github.io/repository.sandwichfarm/ — cannot be changed after first user install without requiring reinstall
 - [Phase 01-bootstrap]: plugins.json schema includes id, repo, source fields — enables clean Phase 2 migration to source: github-release without schema breakage
+- [Phase 01-bootstrap]: Plugin changelog-3.1.0.txt absent from upstream — created minimal fallback; upstream ships real icon.png and fanart.jpg so no placeholder needed
+- [Phase 01-bootstrap]: tools/generate.py reads plugin id and version dynamically from addon.xml — handles future version bumps without script changes
+- [Phase 01-bootstrap]: write_index_and_checksums() atomic pattern established — all three index files in single call with BOM assertion guard
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-29T13:54:53.402Z
-Stopped at: Completed 01-bootstrap/01-01-PLAN.md
+Last session: 2026-04-29T13:59:52.242Z
+Stopped at: Completed 01-bootstrap/01-02-PLAN.md
 Resume file: None
