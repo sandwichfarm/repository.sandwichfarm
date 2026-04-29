@@ -88,6 +88,38 @@ def build_addons_xml(addon_elements: list) -> str:
     return "\n".join(lines) + "\n"
 
 
+def write_html_index(output_dir: str, repo_zip_name: str) -> None:
+    """
+    Write index.html at output_dir root so Kodi's "Install from zip file" can
+    list the wrapper repo ZIP when the user adds the base URL as a Kodi source.
+
+    Without index.html, GitHub Pages returns 404 on the bare URL and Kodi's file
+    browser shows an empty list. The shape mirrors drinfernoo/repository.example.
+    """
+    html = (
+        "<!DOCTYPE html>\n"
+        "<html lang=\"en\">\n"
+        "<head>\n"
+        "<meta charset=\"utf-8\">\n"
+        "<title>repository.sandwichfarm — Kodi addon repository</title>\n"
+        "</head>\n"
+        "<body>\n"
+        "<h1>repository.sandwichfarm</h1>\n"
+        "<p>Kodi addon repository. Add this site as a Kodi file source, then "
+        f"install <code>{repo_zip_name}</code> below.</p>\n"
+        "<ul>\n"
+        f"<li><a href=\"{repo_zip_name}\">{repo_zip_name}</a></li>\n"
+        "<li><a href=\"addons.xml\">addons.xml</a></li>\n"
+        "<li><a href=\"addons.xml.sha256\">addons.xml.sha256</a></li>\n"
+        "<li><a href=\"addons.xml.md5\">addons.xml.md5</a></li>\n"
+        "</ul>\n"
+        "</body>\n"
+        "</html>\n"
+    )
+    with open(os.path.join(output_dir, "index.html"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(html)
+
+
 def write_index_and_checksums(content: str, output_dir: str) -> None:
     """
     Write addons.xml, addons.xml.sha256, addons.xml.md5 -- ATOMICALLY in one call.
@@ -180,6 +212,9 @@ def main():
     # ------------------------------------------------------------------
     content = build_addons_xml(addon_elements)
     write_index_and_checksums(content, output_dir)
+
+    # Write the HTML index so Kodi's Install-from-zip browser can surface the wrapper ZIP
+    write_html_index(output_dir, f"{REPO_ADDON_ID}-{REPO_ADDON_VER}.zip")
 
     print(f"Generated: {output_dir}")
     print(f"  addons.xml -- {len(addon_elements)} addons")
